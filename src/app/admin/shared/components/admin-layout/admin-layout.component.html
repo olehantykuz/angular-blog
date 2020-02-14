@@ -1,7 +1,7 @@
 <nav class="navbar bg-primary">
   <h1 routerLink="/">Blog</h1>
 
-  <ul>
+  <ul *ngIf="auth.isAuthenticated()">
     <li routerLinkActive="active">
       <a [routerLink]="['/admin', 'dashboard']">Main</a>
     </li>
