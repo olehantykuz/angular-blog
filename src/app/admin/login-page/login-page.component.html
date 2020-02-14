@@ -40,7 +40,7 @@
   </div>
 
   <button
-    [disabled]="form.invalid"
+    [disabled]="form.invalid || submitted"
     type="submit"
     class="btn badge-primary"
   >Login</button>
