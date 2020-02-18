@@ -1,0 +1,5 @@
+git add{
+  "projects": {
+    "default": "angular-blog-614eb"
+  }
+}
