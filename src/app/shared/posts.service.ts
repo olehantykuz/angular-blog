@@ -59,4 +59,8 @@ export class PostsService {
       );
   }
 
+  update(data: Post): Observable<Post> {
+    return this.http.put<Post>(`${environment.fbDbUrl}/posts/${data.id}.json`, data);
+  }
+
 }
