@@ -3,6 +3,7 @@ import {PostsService} from '../../shared/posts.service';
 import {Post} from '../../shared/interfaces';
 import {Subscription} from 'rxjs';
 import {AlertService} from '../shared/services/alert.service';
+import {LocalesService} from '../../shared/locales.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -18,7 +19,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private postsService: PostsService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    public localeService: LocalesService
   ) { }
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {LocalesService} from '../../../../shared/locales.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -11,7 +12,8 @@ export class AdminLayoutComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public auth: AuthService
+    public auth: AuthService,
+    public localeService: LocalesService
     ) { }
 
   ngOnInit() {
@@ -21,5 +23,9 @@ export class AdminLayoutComponent implements OnInit {
     event.preventDefault();
     this.auth.logout();
     this.router.navigate(['/admin', 'login']);
+  }
+
+  setLocale(value: string) {
+    this.localeService.setLocale(value);
   }
 }
