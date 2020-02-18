@@ -1,17 +1,21 @@
-<div class="post">
+<div
+  *ngIf="post$ | async as post; else loading"
+  class="post"
+>
   <div class="header">
-    <h1>Post title</h1>
+    <h1>{{post.title}}</h1>
 
     <button routerLink="/" class="btn badge-link">Home</button>
   </div>
   <div class="info">
-    <strong>Author</strong>
-    <small>14.02.2020</small>
+    <strong>{{post.author}}</strong>
+    <small>{{post.date | date:'medium' }}</small>
   </div>
   <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum deleniti dolorum, esse eveniet explicabo incidunt itaque libero repudiandae veritatis. Consectetur consequatur debitis dignissimos ea eos id laboriosam modi nostrum ut voluptatum! Amet consectetur ea explicabo libero nostrum praesentium veritatis. Deserunt ducimus illum natus nemo optio recusandae soluta ullam voluptate. Dolorem?</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum deleniti dolorum, esse eveniet explicabo incidunt itaque libero repudiandae veritatis. Consectetur consequatur debitis dignissimos ea eos id laboriosam modi nostrum ut voluptatum! Amet consectetur ea explicabo libero nostrum praesentium veritatis. Deserunt ducimus illum natus nemo optio recusandae soluta ullam voluptate. Dolorem?</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum deleniti dolorum, esse eveniet explicabo incidunt itaque libero repudiandae veritatis. Consectetur consequatur debitis dignissimos ea eos id laboriosam modi nostrum ut voluptatum! Amet consectetur ea explicabo libero nostrum praesentium veritatis. Deserunt ducimus illum natus nemo optio recusandae soluta ullam voluptate. Dolorem?</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum deleniti dolorum, esse eveniet explicabo incidunt itaque libero repudiandae veritatis. Consectetur consequatur debitis dignissimos ea eos id laboriosam modi nostrum ut voluptatum! Amet consectetur ea explicabo libero nostrum praesentium veritatis. Deserunt ducimus illum natus nemo optio recusandae soluta ullam voluptate. Dolorem?</p>
+    <quill-view-html [content]="post.text"></quill-view-html>
   </div>
 </div>
+
+<ng-template #loading>
+  <p class="text-center">Loading</p>
+</ng-template>
