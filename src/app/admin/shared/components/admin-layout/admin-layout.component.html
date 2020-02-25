@@ -14,6 +14,13 @@
       <a href="#" (click)="logout($event)">Logout</a>
     </li>
   </ul>
+  <form>
+    <select #localeSelect (change)="setLocale(localeSelect.value)">
+      <option
+        *ngFor="let locale of localeService.locales" [value]="locale"
+      >{{ locale | uppercase }}</option>
+    </select>
+  </form>
 </nav>
 
 <div class="container">
